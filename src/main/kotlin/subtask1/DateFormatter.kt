@@ -10,6 +10,7 @@ class DateFormatter {
 
     fun toTextDay(day: String, month: String, year: String): String {
 
+        Locale.getDefault()
         val date: LocalDate
 
         try {
