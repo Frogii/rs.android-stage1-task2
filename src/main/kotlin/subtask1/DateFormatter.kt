@@ -10,7 +10,6 @@ class DateFormatter {
 
     fun toTextDay(day: String, month: String, year: String): String {
 
-        Locale.getDefault()
         val date: LocalDate
 
         try {
@@ -18,7 +17,7 @@ class DateFormatter {
         } catch (e: DateTimeException) {
             return "Такого дня не существует"
         }
-        val formatter = DateTimeFormatter.ofPattern("d MMMM")
+        val formatter = DateTimeFormatter.ofPattern("d MMMM").withLocale(Locale("ru"))
         val formDate = date.format(formatter)
 
         return ("$formDate, ${date.dayOfWeek.getDisplayName(TextStyle.FULL, Locale("RU"))}".toLowerCase())
